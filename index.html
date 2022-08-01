@@ -118,26 +118,38 @@
 
   </head>
 
-  <body onload="setup()">
+  <body>
     <h1 class="header">
       <img class="logo-img" src="https://ra-web-files.s3.ap-southeast-1.amazonaws.com/all/brand/logo.png" />
       Rocket Academy
       <img class="logo-img" src="https://ra-web-files.s3.ap-southeast-1.amazonaws.com/all/brand/logo.png" />
     </h1>
     <h1 class="header">♣️ Basics - Blackjack ♠️</h1>
-    <div id="playorreset"></div>
-      </div>
-    <div id="playarea"></div>
-      </div>
-
-    <div id="gamebuttons"></div>
-      </div>
-
-    <div id="results"></div>
+    <div id="container">
+      <p>Input:</p>
+      <input id="input-field" />
+      <br />
+      <button id="submit-button">Submit</button>
+      <p>Output:</p>
+      <div id="output-div"></div>
     </div>
     <!-- Import program logic -->
     <script src="script.js"></script>
+    <!-- Define button click functionality -->
+    <script>
+      var button = document.querySelector("#submit-button");
+      button.addEventListener("click", function () {
+        // Set result to input value
+        var input = document.querySelector("#input-field");
+        var result = main(input.value);
 
-    
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+    </script>
   </body>
 </html>
